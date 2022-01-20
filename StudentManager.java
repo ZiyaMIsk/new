@@ -21,22 +21,14 @@ public class StudentManager {
 		
 		this.students.add(student);
 	}
-	public void delete(Student deletedStudent) {
+	public void delete(int id) {
 		Student studentToDelete = new Student();
-		
 		for (Student student : students) {
-			if (student.getId() == studentToDelete.getId()) {
-				
-                studentToDelete = student;
-                System.out.println(studentToDelete.getFirstName() + " " + studentToDelete.getLastName() + " " + "Adlý Öðrenci Kaldýrýldý.");
-                students.remove(studentToDelete);
-                break;
-			} else {
-				System.out.println("Silinecek öðrenci bulunamadý! --- Öðrenci silinemedi!!!");
-
+			if (student.getId()==id) {
+				studentToDelete=student;
 			}
-			
-			
+			System.out.println(studentToDelete.getFirstName() + " " + studentToDelete.getLastName() + " " + "Adlý Öðrenci Kaldýrýldý.");
+			students.remove(studentToDelete);
 		}
 		
 		

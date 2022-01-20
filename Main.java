@@ -19,12 +19,13 @@ public class Main {
 		for (Student item : studentManager.students) {
             System.out.println(item.getId()+" "+item.getFirstName()+" "+item.getLastName()+" "+item.getIdentityNumber());
         }
+		
+	       
+		studentManager.delete(1);
 		studentManager.update(studentX);
 		 for (Student item : studentManager.students) {
 	            System.out.println(item.getId()+" "+item.getFirstName()+" "+item.getLastName()+" "+item.getIdentityNumber());
 	        }
-	       
-		studentManager.delete(student2);
 		
 
 	}
