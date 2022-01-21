@@ -11,27 +11,27 @@ public class StudentManager {
 	}
 
 	public void add(Student student) {
-		
-		if(students.contains(student) ) {
-			System.out.println("Aynı Öğrenci Eklenemez.");
+		for(Student studentX : students)
+		if(studentX.getIdentityNumber().equals(student.getIdentityNumber()) ) {
+			System.out.println("Bu kimlik numarasÄ±na ait " + student.getFirstName() + " " +student.getLastName() + " "+ " adlÄ± Ã¶ÄŸrenci zaten mevcut !!!");
 			return;
 		}
-		
-		System.out.println(student.getFirstName() + " " + student.getLastName() + " " +"Ögrenci Eklendi.");
-		
-		this.students.add(student);
+	students.add(student);
+	System.out.println(student.getId()+" "+student.getIdentityNumber()+" "+
+			student.getFirstName()+" "+student.getLastName()+" eklendi.");
 	}
 	public void delete(int id) {
-		Student studentToDelete = new Student();
-		for (Student student : students) {
-			if (student.getId()==id) {
-				studentToDelete=student;
-			}
-			System.out.println(studentToDelete.getFirstName() + " " + studentToDelete.getLastName() + " " + "Adlı Öğrenci Kaldırıldı.");
-			students.remove(studentToDelete);
-		}
-		
-		
+
+        for (Student student : students) {
+            if (student.getId()==id) {
+               
+                students.remove(student);
+                System.out.println(student.getFirstName() + " " + student.getLastName() + " " + "AdlÄ± Ã–ÄŸrenci KaldÄ±rÄ±ldÄ±.");
+                return;
+            }
+            System.out.println("Silinecek Ã¶ÄŸrenci bulunamadÄ±");
+            return;
+        }
 	}
 	public void update(Student updatedStudent) {
 		boolean varsa=true;
@@ -39,7 +39,7 @@ public class StudentManager {
 			if (student.getId() == updatedStudent.getId()) {
 				students.set(students.indexOf(student), updatedStudent);
                 student = updatedStudent;
-                System.out.println(updatedStudent.getId() + " ID No`lu öğrenci güncellendi!");
+                System.out.println(updatedStudent.getId() + " ID No`lu Ã¶ÄŸrenci gÃ¼ncellendi!");
                 varsa=true;
                 break;
 			} else {
@@ -47,7 +47,7 @@ public class StudentManager {
 			}
 			if (!varsa) {
 
-	            System.out.println("Güncellenecek öğrenci bulunamadı! --- Öğrenci güncellenemedi!!!");
+	            System.out.println("GÃ¼ncellenecek Ã¶ÄŸrenci bulunamadÄ±! --- Ã–ÄŸrenci gÃ¼ncellenemedi!!!");
 	        }
 		}
 		
